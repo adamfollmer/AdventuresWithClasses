@@ -4,10 +4,9 @@ public class Person {
 	int age;
 	double money;
 	boolean married;
-	String[] friends = new String[10];
-	String[] kids = new String[3];
-	int happiness;
+	double happiness;
 	int health;
+	int educationYears;
 	String currentCity;
 	String currentCar;
 	String currentHome;
@@ -24,27 +23,29 @@ public class Person {
 		currentCar = "BEATER";
 		currentHome = "YOUR PARENTS BASEMENT";
 		currentCareer = "UNEMPLOYED";
+		educationYears = 0;
 	}
 
-	public int yearAge(int age) {
-		age++;
-		return age;
-	}
-
-	public double yearTaxes (int age, double money) {
-		money = money + 100 * (age / 18);
+	public double moneyChanges(int age, double money, double salary, double car, double home) {
+		money = money + 100 * (age / 18); //serves as taxes for the character
+		money = money + salary - car - home;
 		return money;
 	}
-	public int healthChange (int age, String city){
+
+	public int healthChange(int age, String city) {
 		if (age <= 30) {
 			health -= 1;
-		} else if (age >= 60){
+		} else if (age >= 60) {
 			health -= 2;
 		}
 		return health;
 	}
-	public int happinessChange (int age, String city, double money, int friends, int kids, boolean married){
-		happiness++;
+
+	public double happinessChange(double happiness, double cityFactor, double jobFactor, double homeFactor, double carFactor,  boolean married) {
+		happiness = happiness + cityFactor + jobFactor + homeFactor + carFactor;
+		if (married = true){
+			happiness++;
+		}
 		return happiness;
 	}
 }
