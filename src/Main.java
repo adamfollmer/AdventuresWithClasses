@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		YearlyUpdate yearlyUpdate = new YearlyUpdate();
+		TextUpdates printText = new TextUpdates();
 		Scanner input = new Scanner(System.in);
 		City city = new City ("BEAVER DAM");
 		Car car = new Car ("BEATER");
@@ -16,15 +16,9 @@ public class Main {
 		System.out.println("Hi! What's your name?");
 		name = input.nextLine().toUpperCase();
 		Person character = new Person (name);
-		System.out.println();
-		System.out.println("Hi " + character.name + ". Welcome to life.");
-		System.out.println("You are a young adult entering the work force. You will decide your: JOB, CITY, HOME, and CAR");
-		System.out.println();
-		System.out.println("Make sure to watch your HEALTH, HAPPINESS, AND MONEY. You can also keep track of your FRIENDS");
-		System.out.println();
-		System.out.println("This is how you'll start off:");
+		printText.introduction(character.name);
 		do {
-			yearlyUpdate.printUpdates (character);
+			printText.printUpdates (character);
 			
 			System.out.println("What do you want to change?");
 			userInput = input.nextLine().toUpperCase();
@@ -54,12 +48,7 @@ public class Main {
 			character.happiness = character.happinessChange(character.happiness, city.happinessFactor, job.happinessFactor, home.happinessFactor, car.happinessFactor, character.married);
 		} while (character.health > 0);
 			
-		
-		System.out.println("Well " + character.name + ", it was a good run.");
-		System.out.println("Your final stats:");
-		System.out.println();
-		System.out.println("Money: " + "$" + character.money);
-		System.out.println("Happiness: " + character.happiness);
+		printText.finalCredits(character);
 	}
 
 }
