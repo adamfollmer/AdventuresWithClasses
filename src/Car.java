@@ -44,4 +44,8 @@ public class Car {
 		System.out.println();
 		return userInput;
 	}
+	public Car classChangeCar (String car){
+		Car newCar = new Car (car);
+		return newCar;
+	}
 }

@@ -54,6 +54,10 @@ public class Job {
 		System.out.println();
 		return userInput;
 	}
+	public Job classChangeJob (String job){
+		Job newJob = new Job (job);
+		return newJob;
+	}
 	
 	public int addEducation (Job job, Person person){
 		person.educationYears = person.educationYears + job.educationYears;

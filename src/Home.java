@@ -44,6 +44,10 @@ public class Home {
 		System.out.println();
 		return userInput;
 	}
+	public Home classChangeHome (String home){
+		Home newHome = new Home (home);
+		return newHome;
+	}
 }
 
 

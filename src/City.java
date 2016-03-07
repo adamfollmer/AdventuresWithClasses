@@ -44,5 +44,9 @@ public class City {
 		System.out.println();
 		return userInput;
 	}
+	public City classChangeJob (String city){
+		City newCity = new City (city);
+		return newCity;
+	}
 }
 

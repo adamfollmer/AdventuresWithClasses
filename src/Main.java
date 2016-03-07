@@ -30,15 +30,16 @@ public class Main {
 			userInput = input.nextLine().toUpperCase();
 			if (userInput.equals("CITY")){
 				character.currentCity = city.cityMove (city);
-				city.locationName = character.currentCity;
+				city = city.classChangeJob(character.currentCity);
 			} else if (userInput.equals("CAR")){
 				character.currentCar = car.newCar (car);
-				car.type = character.currentCar;
+				car = car.classChangeCar(character.currentCar);
 			} else if (userInput.equals("HOME")){
 				character.currentHome = home.newHome (home);
-				home.type = character.currentHome;
+				home = home.classChangeHome(character.currentHome);
 			} else if (userInput.equals("JOB")){
 				character.currentCareer = job.newJob (job, character);
+				job = job.classChangeJob(character.currentCareer);
 				job.job = character.currentCareer;
 			} else {
 				System.out.println("No changes this year!");
